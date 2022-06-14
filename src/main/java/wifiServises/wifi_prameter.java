@@ -24,7 +24,7 @@ public class wifi_prameter {
 	
 	private String X_SWIFI_CMCWR;
 	
-	private int X_SWIFI_CNSTC_YEAR;
+	private String X_SWIFI_CNSTC_YEAR;
 	
 	private String X_SWIFI_INOUT_DOOR;
 	
@@ -116,11 +116,11 @@ public class wifi_prameter {
 		X_SWIFI_CMCWR = x_SWIFI_CMCWR;
 	}
 
-	public int getX_SWIFI_CNSTC_YEAR() {
+	public String getX_SWIFI_CNSTC_YEAR() {
 		return X_SWIFI_CNSTC_YEAR;
 	}
 
-	public void setX_SWIFI_CNSTC_YEAR(int x_SWIFI_CNSTC_YEAR) {
+	public void setX_SWIFI_CNSTC_YEAR(String x_SWIFI_CNSTC_YEAR) {
 		X_SWIFI_CNSTC_YEAR = x_SWIFI_CNSTC_YEAR;
 	}
 
