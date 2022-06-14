@@ -20,13 +20,10 @@ public class wifiJSON {
         List<wifi_prameter> wiList = new ArrayList<>();
 
         Long startNum = 1L;
-        Long lastNum = 500L;
+        Long lastNum = 1000L;
         Long totalNum = 0L;
         while (true)
             {
-                if (totalNum == lastNum) {
-                    break;
-                }
 
             String wifiUrl = "http://openapi.seoul.go.kr:8088/" + ServiceKey + "/json/TbPublicWifiInfo/"+ startNum + "/" + lastNum;
 
@@ -79,15 +76,20 @@ public class wifiJSON {
                 System.out.println("ParseException : " + e.getMessage());
             }
 
-            if (lastNum + 500 < totalNum) {
+            if (lastNum + 1000 < totalNum) {
                 startNum = lastNum + 1;
-                lastNum = lastNum + 500;
+                lastNum = lastNum + 1000;
             } else {
                 startNum = lastNum + 1;
                 lastNum = totalNum;
             }
 
-       }
+                if (totalNum < startNum) {
+                    break;
+                }
+
+
+            }
         return wiList;
     }
 

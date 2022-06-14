@@ -107,6 +107,7 @@ public class wifiService {
 				//입력 건수 조회
 				inserted = pstmt.getUpdateCount();
 
+				con.close();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 
