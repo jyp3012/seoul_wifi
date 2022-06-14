@@ -9,15 +9,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class wifiJSON {
     final static String ServiceKey = "576c74574f70707036314d62445451";
 
-    public wifi_prameter getWifiJson () {
+    public static List<wifi_prameter> getWifiJson () {
 
-        String wifiUrl = "http://openapi.seoul.go.kr:8088/"+ ServiceKey+ "/json/TbPublicWifiInfo/1/1";
+        int lastnum = 2;
+
+        String wifiUrl = "http://openapi.seoul.go.kr:8088/"+ ServiceKey+ "/json/TbPublicWifiInfo/1/" + lastnum;
 
         wifi_prameter wi = new wifi_prameter();
+        wifi_prameter[] wiArray = new wifi_prameter[lastnum];
+        List<wifi_prameter> wiList = new ArrayList<>();
+
         try {
             URL url = new URL(wifiUrl);
 
@@ -54,7 +61,7 @@ public class wifiJSON {
                 wi.setLNT(obj.get("LNT").toString());
                 wi.setWORK_DTTM(obj.get("WORK_DTTM").toString());
 
-                System.out.println(obj.get("X_SWIFI_MGR_NO").toString());
+                wiList.add(wi);
             }
         } catch (MalformedURLException e) {
             System.out.println("MalformedURLException : " + e.getMessage());
@@ -64,7 +71,7 @@ public class wifiJSON {
             System.out.println("ParseException : " + e.getMessage());
         }
 
-        return wi;
+        return wiList;
     }
 
 }
