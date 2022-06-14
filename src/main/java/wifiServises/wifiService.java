@@ -35,6 +35,7 @@ public class wifiService {
 
 	public static int insertWifi(List<wifi_prameter> wiList) throws SQLException {
 		int inserted = 0;
+
 		for (int i = 0; i < wiList.size(); i++) {
 			wifi_prameter wi = wiList.get(i);
 			final String sql = "INSERT INTO seoul_wifi     (" + "\n"
