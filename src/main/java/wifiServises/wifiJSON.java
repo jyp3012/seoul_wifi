@@ -21,8 +21,6 @@ public class wifiJSON {
 
         String wifiUrl = "http://openapi.seoul.go.kr:8088/"+ ServiceKey+ "/json/TbPublicWifiInfo/1/" + lastnum;
 
-        wifi_prameter wi = new wifi_prameter();
-        wifi_prameter[] wiArray = new wifi_prameter[lastnum];
         List<wifi_prameter> wiList = new ArrayList<>();
 
         try {
@@ -43,6 +41,7 @@ public class wifiJSON {
             JSONArray wifiInfo = (JSONArray) wifiListResult.get("row");
 
             for (int i = 0; i < wifiInfo.size(); i++) {
+                wifi_prameter wi = new wifi_prameter();
                 JSONObject obj = (JSONObject) wifiInfo.get(i);
                 wi.setX_SWIFI_MGR_NO(obj.get("X_SWIFI_MGR_NO").toString());
                 wi.setX_SWIFI_WRDOFC(obj.get("X_SWIFI_WRDOFC").toString());
