@@ -9,7 +9,10 @@ public class wifiTest {
 		wifiJSON wifiJSON = new wifiJSON();
 
 
-		wifi.insertWifi(wifiJSON.getWifiJson());
+//		int a = wifi.insertWifi(wifiJSON.getWifiJson());
+
+		System.out.println(wifi.totalWifi());
+
 
 		//wifi.selectWifi();
 		

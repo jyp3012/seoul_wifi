@@ -5,6 +5,7 @@
 <%@ page import = "wifiServises.wifiJSON" %>
 <%@ page import = "java.net.*" %>
 <%@ page import = "org.json.simple.*" %>
+<%@ page import = "org.json.simple.parser.JSONParser" %>
 <%@ page import = "java.io.*" %>
 <%@ page import = "java.util.*" %>
 <%@ page import = "java.sql.*" %>
@@ -16,18 +17,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>
+	<h1 style = "text-align: center;" >
 	<%
+	Class.forName("org.sqlite.JDBC");
+	List<wifi_prameter> arr = new ArrayList<>();
 	wifiService wifi = new wifiService();
-	wifiJSON wifiJSON = new wifiJSON();
-	
-	int a = wifi.insertWifi(wifiJSON.getWifiJson());
-
+	wifiJSON wifiJosn = new wifiJSON();
 	%>
+	<% 
+	wifi.insertWifi(wifiJosn.getWifiJson());
+	String totalNum = wifi.totalWifi();
+	%>
+	<% 
+	out.print(totalNum);
+	%>
+	
 	개의 WIFI정보를 정상적으로 저장하였습니다.
 	</h1>
-	<div>
-	<a href = "indx.jsp"> 홈으로 이</a>
+	<div style = "text-align: center" >
+	<a href = "index.jsp"> 홈으로 이동</a>
 	</div>
 	
 	

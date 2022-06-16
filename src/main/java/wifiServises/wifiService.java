@@ -33,7 +33,37 @@ public class wifiService {
 		}
 	}
 
-	public static int insertWifi(List<wifi_prameter> wiList) throws SQLException {
+	public String totalWifi() {
+
+		Connection con = null;
+		String MGR_NO = null;
+
+		try {
+
+			Class.forName("org.sqlite.JDBC");
+
+			String dpFile = "/Users/junyongpark/Desktop/eclipes-workspace/seoul_wifi/wifiDb/wifiTest";
+			con = DriverManager.getConnection("jdbc:sqlite:" + dpFile);
+
+			Statement stat = con.createStatement();
+			ResultSet rs = stat.executeQuery("SELECT COUNT(X_SWIFI_MGR_NO) from seoul_wifi");
+			while (rs.next()) {
+				MGR_NO = rs.getString("COUNT(X_SWIFI_MGR_NO)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+				}
+			}
+		}
+		return MGR_NO;
+	}
+
+	public int insertWifi(List<wifi_prameter> wiList) throws SQLException {
 		int inserted = 0;
 
 		for (int i = 0; i < wiList.size(); i++) {

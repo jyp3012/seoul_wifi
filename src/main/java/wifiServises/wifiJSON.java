@@ -1,27 +1,22 @@
 package wifiServises;
 
-import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.json.simple.*;
+import java.util.*;
 import java.net.*;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 
 public class wifiJSON {
-    final static String ServiceKey = "576c74574f70707036314d62445451";
+    final String ServiceKey = "576c74574f70707036314d62445451";
 
-    public static List<wifi_prameter> getWifiJson () {
+    public List<wifi_prameter> getWifiJson() {
 
         List<wifi_prameter> wiList = new ArrayList<>();
 
         Long startNum = 1L;
         Long lastNum = 1000L;
         Long totalNum = 0L;
+        
         while (true)
             {
 

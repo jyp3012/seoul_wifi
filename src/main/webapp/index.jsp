@@ -43,13 +43,20 @@
 </head>
 <body>
 <h1>서울시 공용 와이파이 정보 구하기</h1>
-<a href = "index.jsp">홈</a> <a>위치 히스토리 목록</a> <a href = "wifiListUp.jsp">OPEN API 와이파이 정보 가져오기</a>
+<a href = "index.jsp">홈 |</a> <a>위치 히스토리 목록 | </a> <a href = "wifiListUp.jsp"> OPEN API 와이파이 정보 가져오기</a>
 
-<p> LAT </p>
-<div style="border: 1px solid black; padding: 10px; width: 150px" ></div>
+<p> </p>
 
-<p> LNT </p>
-<div style="border: 1px solid black; padding: 10px; width: 150px" ></div>
+<div style="border: 1px solid black; padding: 10px; width: 150px; float:left; margin-right: 10px;" ></div>
+
+<div style="border: 1px solid black; padding: 10px; width: 150px; float:left; margin-right: 10px;" ></div>
+
+<form style = "margin-right: 10px;">
+	<input type = 'button' value = '내 위치 가져오기'/>
+	<input type = 'button' value = '근처 WIFI 정보 보기'/>
+</form>
+
+
 
 <table id="wifiprameter">
   <tr>
