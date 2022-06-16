@@ -43,11 +43,12 @@
 </head>
 <body>
  <script>
- 		const lat;
- 		const lng;
+		var lat = 0;
+		var lng = 0;
+ 		
         function success(position) {
             lat = position.coords.latitude;   // 위도
-            lng = position.coords.longitude; // 경도
+            lng = position.coords.longitude;
             console.log(lat, lng);
         }
 
@@ -57,8 +58,9 @@
             }
         }
         function input_Text() {
-        	document.getElementById("lat").value = ${lat};
-        	document.getElementById("lng").value = ${lng};
+        	document.getElementById("lat").value = lat;
+        	document.getElementById("lng").value = lng;
+      
         }
     </script>
 
