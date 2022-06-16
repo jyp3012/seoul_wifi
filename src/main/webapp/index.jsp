@@ -42,22 +42,40 @@
 </style>
 </head>
 <body>
+ <script>
+ 		const lat;
+ 		const lng;
+        function success(position) {
+            lat = position.coords.latitude;   // 위도
+            lng = position.coords.longitude; // 경도
+            console.log(lat, lng);
+        }
+
+        function getUserLocation() {
+            if (!navigator.geolocation) {
+                throw "위치 정보가 지원되지 않습니다.";
+            }
+        }
+        function input_Text() {
+        	document.getElementById("lat").value = ${lat};
+        	document.getElementById("lng").value = ${lng};
+        }
+    </script>
+
 <h1>서울시 공용 와이파이 정보 구하기</h1>
 <a href = "index.jsp">홈 |</a> <a>위치 히스토리 목록 | </a> <a href = "wifiListUp.jsp"> OPEN API 와이파이 정보 가져오기</a>
 
 <p> </p>
 
-<div style="border: 1px solid black; padding: 10px; width: 150px; float:left; margin-right: 10px;" ></div>
-
-<div style="border: 1px solid black; padding: 10px; width: 150px; float:left; margin-right: 10px;" ></div>
-
 <form style = "margin-right: 10px;">
-	<input type = 'button' value = '내 위치 가져오기'/>
+LAT: <input type = 'text' id = 'lat' value = '0.0'/>
+LNT:
+	<input type = 'text' id = 'lng' value = '0.0' />
+	<input type = 'button' value = '내 위치 가져오기' onclick = "navigator.geolocation.getCurrentPosition(success, getUserLocation); input_Text();"/>
 	<input type = 'button' value = '근처 WIFI 정보 보기'/>
 </form>
 
-
-
+<p>  </p>
 <table id="wifiprameter">
   <tr>
     <th>거리(km)</th>
