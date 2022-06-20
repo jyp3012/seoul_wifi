@@ -2,6 +2,7 @@ package wifiServises;
 
 import java.sql.*;
 import java.util.List;
+import java.util.ArrayList;
 
 public class wifiService {
 
@@ -157,5 +158,41 @@ public class wifiService {
 			}
 		}
 		return inserted;
+	}
+
+	public List<gps_parameter> listUpGps() {
+
+		Connection con = null;
+		gps_parameter gps = new gps_parameter();
+		List<gps_parameter> gpsList = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.sqlite.JDBC");
+
+			String dpFile = "/Users/junyongpark/Desktop/eclipes-workspace/seoul_wifi/wifiDb/wifiTest";
+			con = DriverManager.getConnection("jdbc:sqlite:" + dpFile);
+
+			Statement stat = con.createStatement();
+			ResultSet rs = stat.executeQuery("SELECT * from gps_hstiory;");
+			while (rs.next()) {
+				gps.setLat(rs.getString("lat"));
+				gps.setLng(rs.getString("lng"));
+				
+				gpsList.add(gps);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+				}
+			}
+		}
+		
+		return gpsList;
+
 	}
 }
