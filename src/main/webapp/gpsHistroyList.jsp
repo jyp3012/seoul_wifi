@@ -87,6 +87,9 @@ gpsList = wifi.listUpGps();
 		<%
 		}
 		%>
+		<%
+		gpsList.clear();
+		%>
 	</table>
 
 

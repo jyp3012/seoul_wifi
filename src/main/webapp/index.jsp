@@ -76,6 +76,11 @@
 
 		}
 	</script>
+	
+	<%
+	wifiService wifi = new wifiService();
+	wifi.deleteWifiLocat();
+	%>
 
 	<h1>서울시 공용 와이파이 정보 구하기</h1>
 	<a href="index.jsp">홈 |</a>
