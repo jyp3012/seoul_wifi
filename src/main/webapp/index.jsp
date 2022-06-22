@@ -80,7 +80,9 @@
 	<h1>서울시 공용 와이파이 정보 구하기</h1>
 	<a href="index.jsp">홈 |</a>
 	<a href = "gpsHistroyList.jsp">위치 히스토리 목록 | </a>
-	<a href="wifiListUp.jsp"> OPEN API 와이파이 정보 가져오기</a>
+	<a href="wifiListUp.jsp"> OPEN API 와이파이 정보 가져오기 |</a>
+	<a href= "wifilocation.jsp">가까운 와이파이 보기 </a>
+	
 
 	<p></p>
 
@@ -90,7 +92,6 @@
 			value='내 위치 가져오기'
 			onclick="navigator.geolocation.getCurrentPosition(success, getUserLocation); input_Text();" />
 		<input type = 'submit' value = "내 위치 저장" onclick = "" />
-		<input type='button' value='근처 WIFI 정보 보기' />
 	</form>
 
 	<p></p>
